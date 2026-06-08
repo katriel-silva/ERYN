@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <!-- Configurações básicas do documento -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Eryn Consultoria & Tecnologia — Diagnóstico gratuito, presencial e online. Francisco Beltrão, PR." />
+  <title>Eryn — Consultoria & Tecnologia</title>
+
+  <!--
+    FONTES EXTERNAS
+    Clash Display → usada nos títulos grandes (h1, h2)
+    Inter          → usada no corpo do texto
+    Ambas carregam do CDN, sem precisar instalar nada.
+  -->
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@600,700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- FOLHA DE ESTILOS — todo o visual está no arquivo style.css -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════
+       BOTÃO WHATSAPP FLUTUANTE
+       Fica fixo no canto inferior direito.
+       Para mudar o número: edite o href.
+       Formato: https://wa.me/55 + DDD + número
+  ══════════════════════════════════════ -->
+  <a href="https://wa.me/5546988224523" target="_blank" rel="noopener noreferrer" class="wa-float">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+    </svg>
+    <span class="wa-txt">Falar no WhatsApp</span>
+  </a>
+
+  <!-- ══════════════════════════════════════
+       BARRA DE NAVEGAÇÃO
+       Fixa no topo, fundo 100% transparente.
+       Contém APENAS a logo (wordmark ERYN).
+       Para mudar cor da logo: edite o
+       atributo stroke nas linhas abaixo.
+  ══════════════════════════════════════ -->
+  <nav class="nav">
+    <a href="#hero">
+      <!--
+        LOGO ERYN — desenho vetorial (SVG)
+        Cada letra é construída com linhas e curvas.
+        stroke-width="5"   → traço grosso (verticais)
+        stroke-width="2"   → traço fino  (horizontais)
+        stroke="#F5F5F5"   → cor branca
+      -->
+      <svg width="70" height="22" viewBox="0 0 264 82" fill="none">
+        <!-- E -->
+        <line x1="0"   y1="0"  x2="0"   y2="72" stroke="#F5F5F5" stroke-width="5"   stroke-linecap="square"/>
+        <line x1="0"   y1="0"  x2="42"  y2="0"  stroke="#F5F5F5" stroke-width="2"   stroke-linecap="square"/>
+        <line x1="0"   y1="36" x2="30"  y2="36" stroke="#F5F5F5" stroke-width="2"   stroke-linecap="square"/>
+        <line x1="0"   y1="72" x2="42"  y2="72" stroke="#F5F5F5" stroke-width="2"   stroke-linecap="square"/>
+        <!-- R -->
+        <line x1="60"  y1="0"  x2="60"  y2="72" stroke="#F5F5F5" stroke-width="5"   stroke-linecap="square"/>
+        <path d="M 60,0 L 92,0 C 106,0 108,9 108,20 C 108,31 100,38 60,38"          stroke="#F5F5F5" stroke-width="2.5" fill="none" stroke-linecap="square"/>
+        <line x1="70"  y1="38" x2="107" y2="72" stroke="#F5F5F5" stroke-width="3"   stroke-linecap="square"/>
+        <!-- Y -->
+        <line x1="126" y1="0"  x2="153" y2="42" stroke="#F5F5F5" stroke-width="3"   stroke-linecap="square"/>
+        <line x1="180" y1="0"  x2="153" y2="42" stroke="#F5F5F5" stroke-width="3"   stroke-linecap="square"/>
+        <line x1="153" y1="42" x2="153" y2="72" stroke="#F5F5F5" stroke-width="5"   stroke-linecap="square"/>
+        <!-- N -->
+        <line x1="198" y1="0"  x2="198" y2="72" stroke="#F5F5F5" stroke-width="5"   stroke-linecap="square"/>
+        <line x1="198" y1="0"  x2="248" y2="72" stroke="#F5F5F5" stroke-width="2"   stroke-linecap="square"/>
+        <line x1="248" y1="0"  x2="248" y2="72" stroke="#F5F5F5" stroke-width="5"   stroke-linecap="square"/>
+      </svg>
+    </a>
+  </nav>
+
+  <!-- ══════════════════════════════════════
+       SEÇÃO HERO — Topo da página
+       Primeira coisa que o visitante vê.
+       Classes hi, hi2, hi3... = delay da
+       animação de entrada (definida no CSS).
+  ══════════════════════════════════════ -->
+  <section id="hero">
+
+    <!-- Grade de pontos decorativa no fundo (só visual) -->
+    <div class="hero-grid"></div>
+
+    <div class="hero-content">
+
+      <!-- Badge: pequeno destaque no topo do hero -->
+      <div class="hero-badge hi">
+        <div class="hero-badge-dot"></div>
+        <span>DIAGNÓSTICO GRATUITO · PRESENCIAL E ONLINE</span>
+      </div>
+
+      <!--
+        TÍTULO PRINCIPAL
+        Classe "clash"  → fonte Clash Display (títulos)
+        Classe "gtxt"   → aplica gradiente verde no texto
+        Classes hi, hi2 → delay da animação de entrada
+      -->
+      <h1 class="clash hi2">
+        Seu negócio tem<br/>
+        <span class="gtxt">problemas que você</span><br/>
+        já normalizou.
+      </h1>
+
+      <!-- Subtítulo explicativo -->
+      <p class="lead hi3">
+        A Eryn vai até a sua empresa — ou atende online — mapeia os processos
+        críticos e entrega um sistema web personalizado para eliminar gargalos,
+        automatizar tarefas e fazer seu negócio crescer de verdade.
+      </p>
+
+      <!-- Botões de ação (CTA) -->
+      <div class="hero-btns hi4">
+        <a href="https://wa.me/5546988224523" target="_blank" rel="noopener noreferrer"
+           class="btn" style="font-size: 15px; padding: 15px 30px;">
+          Quero um Diagnóstico Gratuito
+        </a>
+        <a href="#como-funciona" class="btn-ghost">
+          Como funciona
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="none">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Indicadores de confiança (visíveis só no desktop) -->
+      <div class="hero-trust hi5">
+        <div class="hero-trust-item">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="9" fill="#1FAA59" opacity=".15"/><path d="M5 9l3 3 5-5" stroke="#1FAA59" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Presencial em Francisco Beltrão, PR
+        </div>
+        <div class="hero-trust-item">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="9" fill="#1FAA59" opacity=".15"/><path d="M5 9l3 3 5-5" stroke="#1FAA59" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Atendimento online para todo o Brasil
+        </div>
+        <div class="hero-trust-item">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="9" fill="#1FAA59" opacity=".15"/><path d="M5 9l3 3 5-5" stroke="#1FAA59" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Sistema desenvolvido do zero
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       SEÇÃO PROBLEMA vs SOLUÇÃO
+       Dois cards lado a lado mostrando
+       os problemas do cliente (esq.) e
+       o que a Eryn resolve (dir.).
+
+       "reveal"           → elemento aparece ao scrollar
+       data-delay="100"   → atraso de 100ms na animação
+  ══════════════════════════════════════ -->
+  <section class="sec-gray">
+    <div class="container">
+
+      <p class="s-label reveal">O diagnóstico começa aqui</p>
+      <h2 class="clash s-title reveal" data-delay="100">Reconhece alguma dessas situações?</h2>
+      <p class="s-sub reveal" data-delay="200">
+        A maioria dos negócios perde tempo e dinheiro com problemas que têm solução.
+      </p>
+
+      <div class="grid-2">
+
+        <!-- Coluna esquerda: problemas do cliente (ícone X vermelho) -->
+        <div class="pain-box card reveal" data-delay="100">
+          <div class="box-label red">O que você vive hoje</div>
+          <div class="box-item"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="9" fill="#EF4444" opacity=".12"/><path d="M6 6l6 6M12 6l-6 6" stroke="#EF4444" stroke-width="1.8" stroke-linecap="round"/></svg><span class="pain-txt">Processos manuais que consomem horas do seu dia</span></div>
+          <div class="box-item"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="9" fill="#EF4444" opacity=".12"/><path d="M6 6l6 6M12 6l-6 6" stroke="#EF4444" stroke-width="1.8" stroke-linecap="round"/></svg><span class="pain-txt">Planilhas desatualizadas, dados espalhados</span></div>
+          <div class="box-item"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="9" fill="#EF4444" opacity=".12"/><path d="M6 6l6 6M12 6l-6 6" stroke="#EF4444" stroke-width="1.8" stroke-linecap="round"/></svg><span class="pain-txt">Equipe sobrecarregada com tarefas repetitivas</span></div>
+          <div class="box-item"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="9" fill="#EF4444" opacity=".12"/><path d="M6 6l6 6M12 6l-6 6" stroke="#EF4444" stroke-width="1.8" stroke-linecap="round"/></svg><span class="pain-txt">Sem visibilidade do desempenho em tempo real</span></div>
+          <div class="box-item"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="9" fill="#EF4444" opacity=".12"/><path d="M6 6l6 6M12 6l-6 6" stroke="#EF4444" stroke-width="1.8" stroke-linecap="round"/></svg><span class="pain-txt">Crescimento travado por falta de automação</span></div>
+        </div>
+
+        <!-- Coluna direita: o que a Eryn entrega (ícone check verde) -->
+        <div class="sol-box card reveal" data-delay="200">
+          <div class="box-label grn">O que a Eryn entrega</div>
+          <div class="box-item"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="9" fill="#1FAA59" opacity=".15"/><path d="M5 9l3 3 5-5" stroke="#1FAA59" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="sol-txt">Automação dos processos críticos do seu negócio</span></div>
+          <div class="box-item"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="9" fill="#1FAA59" opacity=".15"/><path d="M5 9l3 3 5-5" stroke="#1FAA59" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="sol-txt">Sistema centralizado com informações em tempo real</span></div>
+          <div class="box-item"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="9" fill="#1FAA59" opacity=".15"/><path d="M5 9l3 3 5-5" stroke="#1FAA59" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="sol-txt">Sua equipe focada no que realmente importa</span></div>
+          <div class="box-item"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="9" fill="#1FAA59" opacity=".15"/><path d="M5 9l3 3 5-5" stroke="#1FAA59" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="sol-txt">Dashboard com dados e métricas na palma da mão</span></div>
+          <div class="box-item"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="9" fill="#1FAA59" opacity=".15"/><path d="M5 9l3 3 5-5" stroke="#1FAA59" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="sol-txt">Infraestrutura para crescer sem travar</span></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       SEÇÃO COMO FUNCIONA
+       3 cards com as etapas do processo.
+       Desktop: grid de 3 colunas (CSS).
+       Mobile:  carrossel arrastável (JS).
+
+       Para adicionar uma etapa: duplique
+       um bloco <div class="slide">...</div>.
+  ══════════════════════════════════════ -->
+  <section id="como-funciona" class="sec-white">
+    <div class="container">
+
+      <p class="s-label reveal">Processo</p>
+      <h2 class="clash s-title reveal" data-delay="100">
+        Como a Eryn <span class="gtxt">funciona</span>
+      </h2>
+      <p class="s-sub reveal" data-delay="200">
+        Três etapas simples, do problema ao sistema que resolve.
+      </p>
+
+      <!--
+        SLIDER WRAPPER
+        O script.js inicializa o slider pelos IDs:
+          steps-track → trilha dos slides
+          steps-dots  → bolinhas de navegação (mobile)
+      -->
+      <div class="slider-wrap">
+        <div class="slider-track" id="steps-track">
+
+          <!-- ETAPA 01 -->
+          <div class="slide">
+            <div class="step-card card reveal">
+              <div class="step-head">
+                <div class="step-icon">
+                  <svg width="21" height="21" viewBox="0 0 24 24" fill="none"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="9" r="2.5" stroke="currentColor" stroke-width="1.8"/></svg>
+                </div>
+                <span class="step-tag">GRATUITO</span>
+              </div>
+              <div class="step-num">ETAPA 01</div>
+              <h3 class="step-title">Diagnóstico</h3>
+              <p class="step-desc">Vamos até você — presencialmente em Francisco Beltrão e região, ou online para todo o Brasil. Mapeamos onde a tecnologia pode transformar sua operação.</p>
+            </div>
+          </div>
+
+          <!-- ETAPA 02 -->
+          <div class="slide">
+            <div class="step-card card reveal" data-delay="100">
+              <div class="step-head">
+                <div class="step-icon">
+                  <svg width="21" height="21" viewBox="0 0 24 24" fill="none"><rect x="8" y="2" width="8" height="4" rx="1" stroke="currentColor" stroke-width="1.8"/><path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <span class="step-tag">TRANSPARENTE</span>
+              </div>
+              <div class="step-num">ETAPA 02</div>
+              <h3 class="step-title">Proposta Personalizada</h3>
+              <p class="step-desc">Com base no diagnóstico, apresentamos o que será desenvolvido, o prazo e o investimento. Sem surpresas, sem letra miúda.</p>
+            </div>
+          </div>
+
+          <!-- ETAPA 03 -->
+          <div class="slide">
+            <div class="step-card card reveal" data-delay="200">
+              <div class="step-head">
+                <div class="step-icon">
+                  <svg width="21" height="21" viewBox="0 0 24 24" fill="none"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <span class="step-tag">COMPLETO</span>
+              </div>
+              <div class="step-num">ETAPA 03</div>
+              <h3 class="step-title">Desenvolvimento & Entrega</h3>
+              <p class="step-desc">Desenvolvemos do zero com acompanhamento constante. Entregamos treinamento e suporte para que seu time aproveite ao máximo.</p>
+            </div>
+          </div>
+
+        </div>
+        <!-- Bolinhas de navegação do slider — geradas automaticamente pelo JS -->
+        <div class="slider-dots" id="steps-dots"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       SEÇÃO SERVIÇOS
+       3 cards descrevendo os serviços.
+       Para adicionar um serviço: duplique
+       um <div class="slide">...</div>.
+       Para mudar o card em destaque:
+       troque srv-normal por srv-feat.
+  ══════════════════════════════════════ -->
+  <section id="servicos" class="sec-green">
+    <div class="container">
+
+      <p class="s-label reveal">O que oferecemos</p>
+      <h2 class="clash s-title reveal" data-delay="100" style="color: var(--light);">
+        Nossos <span class="gtxt">serviços</span>
+      </h2>
+      <p class="s-sub light reveal" data-delay="200">
+        Cada serviço foi desenhado para um momento diferente da sua jornada.
+      </p>
+
+      <div class="slider-wrap">
+        <div class="slider-track" id="srv-track">
+
+          <!-- SERVIÇO 1: Diagnóstico (gratuito) -->
+          <div class="slide">
+            <div class="srv-card srv-normal card reveal">
+              <div class="srv-icon" style="background: rgba(31,170,89,.16); color: var(--accent);">
+                <svg width="21" height="21" viewBox="0 0 24 24" fill="none"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="9" r="2.5" stroke="currentColor" stroke-width="1.8"/></svg>
+              </div>
+              <div class="srv-tag" style="color: var(--accent);">GRATUITO</div>
+              <h3 class="srv-title" style="color: var(--light);">Diagnóstico Tecnológico</h3>
+              <p class="srv-desc" style="color: rgba(245,245,245,.48);">Mapeamento de processos presencial ou online. Para quem sabe que algo pode melhorar, mas não sabe por onde começar.</p>
+              <div class="srv-pts">
+                <div class="srv-pt"><div class="srv-dot" style="background: var(--accent);"></div><span style="color: rgba(245,245,245,.52);">Visita presencial ou online</span></div>
+                <div class="srv-pt"><div class="srv-dot" style="background: var(--accent);"></div><span style="color: rgba(245,245,245,.52);">Análise de processos</span></div>
+                <div class="srv-pt"><div class="srv-dot" style="background: var(--accent);"></div><span style="color: rgba(245,245,245,.52);">Relatório completo</span></div>
+                <div class="srv-pt"><div class="srv-dot" style="background: var(--accent);"></div><span style="color: rgba(245,245,245,.52);">Proposta incluída</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SERVIÇO 2: Sistema Web — CARD EM DESTAQUE (fundo verde) -->
+          <div class="slide">
+            <div class="srv-card srv-feat card reveal" data-delay="100">
+              <div class="srv-pop">★ MAIS POPULAR</div>
+              <div class="srv-icon" style="background: rgba(255,255,255,.2); color: #fff;">
+                <svg width="21" height="21" viewBox="0 0 24 24" fill="none"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div class="srv-tag" style="color: rgba(255,255,255,.6);">PRINCIPAL</div>
+              <h3 class="srv-title" style="color: #fff;">Sistema Web Sob Medida</h3>
+              <p class="srv-desc" style="color: rgba(255,255,255,.78);">Desenvolvimento completo do design ao deploy. Para negócios que precisam automatizar e centralizar dados.</p>
+              <div class="srv-pts">
+                <div class="srv-pt"><div class="srv-dot" style="background: rgba(255,255,255,.45);"></div><span style="color: rgba(255,255,255,.82);">Design UI/UX dedicado</span></div>
+                <div class="srv-pt"><div class="srv-dot" style="background: rgba(255,255,255,.45);"></div><span style="color: rgba(255,255,255,.82);">Desenvolvimento full-stack</span></div>
+                <div class="srv-pt"><div class="srv-dot" style="background: rgba(255,255,255,.45);"></div><span style="color: rgba(255,255,255,.82);">Integração com ferramentas</span></div>
+                <div class="srv-pt"><div class="srv-dot" style="background: rgba(255,255,255,.45);"></div><span style="color: rgba(255,255,255,.82);">Treinamento da equipe</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SERVIÇO 3: Parceria contínua -->
+          <div class="slide">
+            <div class="srv-card srv-normal card reveal" data-delay="200">
+              <div class="srv-icon" style="background: rgba(31,170,89,.16); color: var(--accent);">
+                <svg width="21" height="21" viewBox="0 0 24 24" fill="none"><path d="M18 20V10M12 20V4M6 20v-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+              </div>
+              <div class="srv-tag" style="color: var(--accent);">CONTÍNUO</div>
+              <h3 class="srv-title" style="color: var(--light);">Parceria Tecnológica</h3>
+              <p class="srv-desc" style="color: rgba(245,245,245,.48);">Assessoria contínua para implementar tecnologia com consistência. Para negócios que precisam de um parceiro técnico.</p>
+              <div class="srv-pts">
+                <div class="srv-pt"><div class="srv-dot" style="background: var(--accent);"></div><span style="color: rgba(245,245,245,.52);">Reuniões estratégicas</span></div>
+                <div class="srv-pt"><div class="srv-dot" style="background: var(--accent);"></div><span style="color: rgba(245,245,245,.52);">Análise de métricas</span></div>
+                <div class="srv-pt"><div class="srv-dot" style="background: var(--accent);"></div><span style="color: rgba(245,245,245,.52);">Evolução do sistema</span></div>
+                <div class="srv-pt"><div class="srv-dot" style="background: var(--accent);"></div><span style="color: rgba(245,245,245,.52);">Suporte prioritário</span></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="slider-dots" id="srv-dots"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       SEÇÃO SOBRE / FUNDADORES
+       4 cards de diferenciais + 2 cards
+       dos fundadores com contatos.
+       Para adicionar foto: substitua
+       <div class="founder-av">KA</div>
+       por <img src="katriel.jpg" class="founder-photo" alt="Katriel">
+  ══════════════════════════════════════ -->
+  <section id="sobre" class="sec-white">
+    <div class="container">
+
+      <p class="s-label reveal">Por que a Eryn</p>
+      <h2 class="clash s-title reveal" data-delay="100">
+        Diferente de qualquer<br/>
+        <span class="gtxt">consultoria que você já viu</span>
+      </h2>
+      <p class="s-sub reveal" data-delay="200">
+        Fundada em 2026 em Francisco Beltrão, PR. Atendemos presencialmente
+        na região e online para todo o Brasil.
+      </p>
+
+      <!-- Grid de diferenciais (4 cards) -->
+      <div class="grid-2" style="margin-bottom: 18px;">
+
+        <div class="why-card card reveal">
+          <div class="why-icon"><svg width="21" height="21" viewBox="0 0 24 24" fill="none"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="9" r="2.5" stroke="currentColor" stroke-width="1.8"/></svg></div>
+          <div>
+            <h3 class="why-title">Presencial ou online — você escolhe</h3>
+            <p class="why-desc">Atendemos in-loco em Francisco Beltrão e região, ou online para qualquer lugar do Brasil.</p>
+          </div>
+        </div>
+
+        <div class="why-card card reveal" data-delay="100">
+          <div class="why-icon"><svg width="21" height="21" viewBox="0 0 24 24" fill="none"><path d="M13 2L4.09 12.96H12L11 22l8.91-10.96H12L13 2z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div>
+            <h3 class="why-title">Solução personalizada, não pronta</h3>
+            <p class="why-desc">Nenhum negócio é igual. Desenvolvemos do zero para resolver exatamente o seu problema.</p>
+          </div>
+        </div>
+
+        <div class="why-card card reveal" data-delay="150">
+          <div class="why-icon"><svg width="21" height="21" viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+          <div>
+            <h3 class="why-title">Um parceiro em toda a jornada</h3>
+            <p class="why-desc">Do diagnóstico ao treinamento, a mesma equipe. Sem terceirização, sem perda de contexto.</p>
+          </div>
+        </div>
+
+        <div class="why-card card reveal" data-delay="200">
+          <div class="why-icon"><svg width="21" height="21" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.8"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" stroke="currentColor" stroke-width="1.8"/></svg></div>
+          <div>
+            <h3 class="why-title">Francisco Beltrão, PR — e onde precisar</h3>
+            <p class="why-desc">Nascemos no Paraná em 2026 e atendemos em todo o Brasil.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Cards dos fundadores -->
+      <div class="grid-2">
+
+        <!-- KATRIEL — para adicionar foto: troque div.founder-av por img.founder-photo -->
+        <div class="founder-card reveal">
+          <div class="founder-av">KA</div>
+          <div>
+            <div class="founder-name clash">Katriel Alves da Silva</div>
+            <div class="founder-role">Co-Founder · Consultoria & Estratégia</div>
+            <div class="founder-links">
+              <a href="https://wa.me/5546988224523" class="founder-link" target="_blank" rel="noopener noreferrer">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.09 9.77 19.79 19.79 0 01.1 1.11 2 2 0 012.09 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91A16 16 0 0016.09 17.91l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                46 98822-4523
+              </a>
+              <a href="mailto:silvakatriel91@gmail.com" class="founder-link">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M2 7l10 8 10-8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                silvakatriel91@gmail.com
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- MATHEUS -->
+        <div class="founder-card reveal" data-delay="100">
+          <div class="founder-av">MR</div>
+          <div>
+            <div class="founder-name clash">Matheus Renk</div>
+            <div class="founder-role">Co-Founder · Tecnologia & Desenvolvimento</div>
+            <div class="founder-links">
+              <a href="https://wa.me/554699369153" class="founder-link" target="_blank" rel="noopener noreferrer">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.09 9.77 19.79 19.79 0 01.1 1.11 2 2 0 012.09 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91A16 16 0 0016.09 17.91l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                46 9936-9153
+              </a>
+              <a href="mailto:renkzeme@gmail.com" class="founder-link">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M2 7l10 8 10-8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                renkzeme@gmail.com
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       SEÇÃO FAQ — Perguntas Frequentes
+       Formato accordion: clica na pergunta
+       e a resposta abre/fecha (controlado
+       pelo JS no script.js).
+       Para adicionar perguntas: duplique
+       um bloco .faq-item completo.
+  ══════════════════════════════════════ -->
+  <section id="faq" class="sec-gray">
+    <div style="max-width: 700px; margin: 0 auto; padding: 0 5%;">
+
+      <p class="s-label reveal">Dúvidas frequentes</p>
+      <h2 class="clash s-title reveal" data-delay="100">
+        Perguntas & <span class="gtxt">Respostas</span>
+      </h2>
+
+      <div style="margin-top: 8px;">
+
+        <div class="faq-item reveal">
+          <button class="faq-btn">
+            <span class="faq-q">O diagnóstico realmente é gratuito?</span>
+            <svg class="faq-icon" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4 6l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <p class="faq-a">Sim, 100%. Visitamos sua empresa (presencialmente ou online), mapeamos os processos e entregamos análise sem custo. A proposta só vem depois — você decide se quer avançar.</p>
+        </div>
+
+        <div class="faq-item reveal" data-delay="60">
+          <button class="faq-btn">
+            <span class="faq-q">Vocês atendem somente em Francisco Beltrão?</span>
+            <svg class="faq-icon" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4 6l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <p class="faq-a">Não! Atendemos presencialmente em Francisco Beltrão e região, e online para qualquer cidade do Brasil.</p>
+        </div>
+
+        <div class="faq-item reveal" data-delay="120">
+          <button class="faq-btn">
+            <span class="faq-q">Quanto tempo leva para desenvolver meu sistema?</span>
+            <svg class="faq-icon" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4 6l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <p class="faq-a">Depende da complexidade, mas a maioria dos projetos é entregue entre 4 e 12 semanas. Você recebe um cronograma detalhado antes de assinar qualquer coisa.</p>
+        </div>
+
+        <div class="faq-item reveal" data-delay="180">
+          <button class="faq-btn">
+            <span class="faq-q">Minha empresa é pequena. Vale a pena?</span>
+            <svg class="faq-icon" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4 6l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <p class="faq-a">É onde mais faz diferença. Pequenas empresas perdem horas com processos manuais. Um sistema bem feito pode literalmente dobrar a produtividade do seu time.</p>
+        </div>
+
+        <div class="faq-item reveal" data-delay="240">
+          <button class="faq-btn">
+            <span class="faq-q">Como funciona o pagamento?</span>
+            <svg class="faq-icon" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4 6l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <p class="faq-a">Valor fixo combinado antes do início, com possibilidade de parcelamento. Sem mensalidades surpresa e sem letra miúda.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       SEÇÃO CTA FINAL — Chamada para ação
+       Última seção antes do rodapé.
+       Dois botões: WhatsApp e e-mail.
+       Para mudar: edite os hrefs abaixo.
+  ══════════════════════════════════════ -->
+  <section id="contato">
+    <div style="max-width: 640px; margin: 0 auto; padding: 0 5%;">
+
+      <div class="cta-badge reveal">
+        <div class="cta-badge-dot"></div>
+        <span style="font-size: 11px; color: var(--accent); letter-spacing: .08em; font-weight: 500;">GRATUITO · SEM COMPROMISSO</span>
+      </div>
+
+      <h2 class="clash reveal" data-delay="80" style="font-size: clamp(26px,4.5vw,54px); font-weight: 700; color: var(--light); line-height: 1.15; margin-bottom: 18px; letter-spacing: -.025em;">
+        Pronto para resolver<br/>
+        <span class="gtxt">de uma vez por todas?</span>
+      </h2>
+
+      <p class="reveal" data-delay="160" style="font-size: 17px; color: rgba(245,245,245,.6); line-height: 1.8; margin-bottom: 40px;">
+        Agende o diagnóstico gratuito e descubra o que um sistema personalizado pode fazer pelo seu negócio.
+      </p>
+
+      <div class="cta-btns reveal" data-delay="240">
+        <a href="https://wa.me/5546988224523" target="_blank" rel="noopener noreferrer"
+           class="btn" style="font-size: 15px; padding: 15px 32px;">
+          Falar no WhatsApp →
+        </a>
+        <a href="mailto:silvakatriel91@gmail.com" class="btn-ghost" style="font-size: 15px;">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M2 7l10 8 10-8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          Enviar e-mail
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       RODAPÉ
+       4 colunas: empresa, navegação,
+       serviços e contato.
+       Para adicionar o Instagram: substitua
+       href="#" pelo link do seu perfil.
+  ══════════════════════════════════════ -->
+  <footer>
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <!-- Coluna 1: Logo + descrição + contatos -->
+        <div>
+          <svg width="74" height="23" viewBox="0 0 264 82" fill="none">
+            <line x1="0" y1="0" x2="0" y2="72" stroke="#F5F5F5" stroke-width="5" stroke-linecap="square"/>
+            <line x1="0" y1="0" x2="42" y2="0" stroke="#F5F5F5" stroke-width="2" stroke-linecap="square"/>
+            <line x1="0" y1="36" x2="30" y2="36" stroke="#F5F5F5" stroke-width="2" stroke-linecap="square"/>
+            <line x1="0" y1="72" x2="42" y2="72" stroke="#F5F5F5" stroke-width="2" stroke-linecap="square"/>
+            <line x1="60" y1="0" x2="60" y2="72" stroke="#F5F5F5" stroke-width="5" stroke-linecap="square"/>
+            <path d="M 60,0 L 92,0 C 106,0 108,9 108,20 C 108,31 100,38 60,38" stroke="#F5F5F5" stroke-width="2.5" fill="none" stroke-linecap="square"/>
+            <line x1="70" y1="38" x2="107" y2="72" stroke="#F5F5F5" stroke-width="3" stroke-linecap="square"/>
+            <line x1="126" y1="0" x2="153" y2="42" stroke="#F5F5F5" stroke-width="3" stroke-linecap="square"/>
+            <line x1="180" y1="0" x2="153" y2="42" stroke="#F5F5F5" stroke-width="3" stroke-linecap="square"/>
+            <line x1="153" y1="42" x2="153" y2="72" stroke="#F5F5F5" stroke-width="5" stroke-linecap="square"/>
+            <line x1="198" y1="0" x2="198" y2="72" stroke="#F5F5F5" stroke-width="5" stroke-linecap="square"/>
+            <line x1="198" y1="0" x2="248" y2="72" stroke="#F5F5F5" stroke-width="2" stroke-linecap="square"/>
+            <line x1="248" y1="0" x2="248" y2="72" stroke="#F5F5F5" stroke-width="5" stroke-linecap="square"/>
+          </svg>
+          <p class="footer-desc">Consultoria tecnológica que transforma processos em sistemas. Francisco Beltrão, PR — atendemos em todo o Brasil.</p>
+          <div class="footer-contacts">
+            <a href="https://wa.me/5546988224523" target="_blank" rel="noopener noreferrer">Katriel · +55 46 98822-4523</a>
+            <a href="https://wa.me/554699369153"  target="_blank" rel="noopener noreferrer">Matheus · +55 46 9936-9153</a>
+            <a href="mailto:silvakatriel91@gmail.com">silvakatriel91@gmail.com</a>
+          </div>
+        </div>
+
+        <!-- Coluna 2: Navegação -->
+        <div>
+          <div class="footer-col-title">Navegação</div>
+          <div class="footer-list">
+            <a href="#servicos">Serviços</a>
+            <a href="#como-funciona">Como Funciona</a>
+            <a href="#sobre">Sobre</a>
+            <a href="#faq">FAQ</a>
+          </div>
+        </div>
+
+        <!-- Coluna 3: Serviços -->
+        <div>
+          <div class="footer-col-title">Serviços</div>
+          <div class="footer-list">
+            <a href="#contato">Diagnóstico Gratuito</a>
+            <a href="#servicos">Sistema Web</a>
+            <a href="#servicos">Parceria Técnica</a>
+          </div>
+        </div>
+
+        <!-- Coluna 4: Contato e redes -->
+        <div>
+          <div class="footer-col-title">Contato</div>
+          <div class="footer-list">
+            <a href="https://wa.me/5546988224523" target="_blank" rel="noopener noreferrer">WhatsApp Katriel</a>
+            <a href="https://wa.me/554699369153"  target="_blank" rel="noopener noreferrer">WhatsApp Matheus</a>
+            <a href="#">Instagram</a><!-- Substitua # pelo link do Instagram quando criar -->
+            <a href="mailto:silvakatriel91@gmail.com">E-mail</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <span class="footer-copy">© 2026 Eryn Consultoria & Tecnologia. Todos os direitos reservados.</span>
+        <span class="footer-copy">Francisco Beltrão, PR · Brasil</span>
+      </div>
+
+    </div>
+  </footer>
+
+  <!--
+    SCRIPT EXTERNO
+    defer → o JS só roda depois que todo o HTML carregar,
+    garantindo que os elementos já existam na página.
+    Toda a interatividade está no arquivo script.js
+  -->
+  <script src="scripts.js" defer></script>
+
+</body>
+</html>
