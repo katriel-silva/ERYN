@@ -168,3 +168,77 @@ function iniciarSlider(trackId, dotsId) {
 /* Inicializa os sliders da página */
 iniciarSlider('steps-track', 'steps-dots');
 iniciarSlider('srv-track',   'srv-dots');
+
+
+/* ──────────────────────────────────────
+   5. GLOWING GRID CARDS — Serviços
+   Rastreia o cursor sobre o grid de serviços.
+   Para cada card:
+     - calcula posição do cursor relativa ao card
+       e atualiza --gx / --gy (centro do glow)
+     - ativa --glow-opacity: 1 ao entrar
+     - nos cards adjacentes (srv-normal), sobe
+       --border-glow proporcional à proximidade
+   Funciona apenas em dispositivos com mouse
+   (pointer: fine) para não interferir no touch.
+────────────────────────────────────── */
+(function() {
+  if (window.matchMedia('(pointer: coarse)').matches) return;
+
+  var track = document.getElementById('srv-track');
+  if (!track) return;
+
+  function getCards() {
+    return Array.from(track.querySelectorAll('.srv-card'));
+  }
+
+  function resetCards(cards) {
+    cards.forEach(function(card) {
+      card.style.setProperty('--glow-opacity', '0');
+      card.style.setProperty('--border-glow', '0');
+    });
+  }
+
+  track.addEventListener('mousemove', function(e) {
+    var cards = getCards();
+
+    cards.forEach(function(card) {
+      var rect    = card.getBoundingClientRect();
+      var cx      = e.clientX - rect.left;
+      var cy      = e.clientY - rect.top;
+
+      /* Cursor está sobre este card? */
+      var isOver  = cx >= 0 && cy >= 0 && cx <= rect.width && cy <= rect.height;
+
+      if (isOver) {
+        /* Posição relativa em % para o radial-gradient */
+        var pct_x = (cx / rect.width)  * 100;
+        var pct_y = (cy / rect.height) * 100;
+        card.style.setProperty('--gx',           pct_x + '%');
+        card.style.setProperty('--gy',           pct_y + '%');
+        card.style.setProperty('--glow-opacity', '1');
+      } else {
+        card.style.setProperty('--glow-opacity', '0');
+      }
+
+      /* Border glow em srv-normal — baseado na distância ao cursor */
+      if (card.classList.contains('srv-normal')) {
+        var nearX   = Math.max(rect.left, Math.min(e.clientX, rect.right));
+        var nearY   = Math.max(rect.top,  Math.min(e.clientY, rect.bottom));
+        var dist    = Math.sqrt(
+          Math.pow(e.clientX - nearX, 2) +
+          Math.pow(e.clientY - nearY, 2)
+        );
+        /* Raio de influência: 220px → glow máximo = 0.55 */
+        var maxDist = 220;
+        var glow    = isOver ? 0.55 : Math.max(0, (1 - dist / maxDist) * 0.55);
+        card.classList.toggle('glow-border', glow > 0);
+        card.style.setProperty('--border-glow', glow.toFixed(3));
+      }
+    });
+  });
+
+  track.addEventListener('mouseleave', function() {
+    resetCards(getCards());
+  });
+}());

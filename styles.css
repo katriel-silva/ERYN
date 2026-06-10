@@ -313,11 +313,12 @@ button {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(31, 170, 89, 0.12);
-  border: 1px solid rgba(31, 170, 89, 0.28);
+  background: rgba(31, 170, 89, 0);
+  border: 1px solid rgba(31, 170, 89, 0);
   border-radius: 100px;
   padding: 5px 14px;
   margin-bottom: 28px;
+  
 }
 
 .hero-badge-dot {
@@ -484,11 +485,52 @@ button {
   padding: 32px;
   height: 100%;
   position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/*
+  Glow layer: rendered behind content via z-index -1.
+  --gx / --gy = cursor position relative to this card (set by JS).
+  --glow-opacity transitions to 0 when cursor leaves the grid.
+*/
+.srv-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: radial-gradient(
+    380px circle at var(--gx, 50%) var(--gy, 50%),
+    rgba(31, 170, 89, 0.18) 0%,
+    transparent 70%
+  );
+  opacity: var(--glow-opacity, 0);
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+/*
+  Border glow: a second pseudo on a wrapper span isn't needed —
+  we drive the border color directly via box-shadow so it doesn't
+  interfere with existing border declarations.
+*/
+.srv-card {
+  transition:
+    transform 0.24s,
+    box-shadow 0.24s,
+    border-color 0.3s;
 }
 
 .srv-normal {
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+/* Border glow intensity driven by --border-glow (0–1) set by JS */
+.srv-normal.glow-border {
+  border-color: rgba(31, 170, 89, var(--border-glow, 0));
+  box-shadow: 0 0 0 1px rgba(31, 170, 89, calc(var(--border-glow, 0) * 0.35)) inset;
 }
 
 .srv-feat { background: var(--accent); }
