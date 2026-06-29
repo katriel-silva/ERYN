@@ -71,11 +71,16 @@ document.querySelectorAll('.faq-btn').forEach(function(btn) {
     document.querySelectorAll('.faq-icon').forEach(function(i) {
       i.classList.remove('open');
     });
+    /* Marca todos como fechados para leitores de tela */
+    document.querySelectorAll('.faq-btn').forEach(function(b) {
+      b.setAttribute('aria-expanded', 'false');
+    });
 
     /* Abre o clicado (se estava fechado) */
     if (!estaAberto) {
       resposta.classList.add('open');
       icone.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
     }
   });
 });
@@ -103,6 +108,8 @@ function iniciarSlider(trackId, dotsId) {
   slides.forEach(function(_, i) {
     var dot = document.createElement('button');
     dot.className = 'dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('type', 'button');
+    dot.setAttribute('aria-label', 'Ir para o item ' + (i + 1));
     dot.addEventListener('click', function() {
       track.scrollTo({ left: i * track.clientWidth, behavior: 'smooth' });
     });

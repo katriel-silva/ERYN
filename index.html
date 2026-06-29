@@ -4,20 +4,80 @@
   <!-- Configurações básicas do documento -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Eryn Consultoria & Tecnologia — Diagnóstico gratuito, presencial e online. Francisco Beltrão, PR." />
-  <title>Eryn — Consultoria & Tecnologia</title>
+  <title>Eryn — Consultoria & Tecnologia | Francisco Beltrão, PR</title>
+  <meta name="description" content="Eryn Consultoria & Tecnologia — Diagnóstico gratuito, presencial e online. Mapeamos seus processos e desenvolvemos sistemas web sob medida. Francisco Beltrão, PR." />
+  <link rel="canonical" href="https://eryn.com.br/" />
+  <meta name="theme-color" content="#0F3D2E" />
+
+  <!--
+    DETECTA JAVASCRIPT
+    Adiciona a classe "js" ao <html> assim que a página começa a carregar.
+    No CSS, o conteúdo só começa invisível (.reveal) quando "js" existe.
+    Assim, se o JS falhar ou estiver desativado, tudo aparece normalmente.
+  -->
+  <script>document.documentElement.className += ' js';</script>
+
+  <!-- FAVICON — ícone que aparece na aba do navegador (arquivo favicon.svg) -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+
+  <!--
+    OPEN GRAPH / REDES SOCIAIS
+    Define como o link aparece ao ser compartilhado (WhatsApp, Instagram, etc).
+    IMPORTANTE: crie a imagem og-image.png (1200x630px) na pasta para o preview
+    mostrar uma prévia visual em vez de só texto.
+  -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:site_name" content="Eryn Consultoria & Tecnologia" />
+  <meta property="og:title" content="Eryn — Consultoria & Tecnologia" />
+  <meta property="og:description" content="Diagnóstico gratuito, presencial ou online. Transformamos processos em sistemas web sob medida." />
+  <meta property="og:url" content="https://eryn.com.br/" />
+  <meta property="og:image" content="https://eryn.com.br/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
 
   <!--
     FONTES EXTERNAS
     Clash Display → usada nos títulos grandes (h1, h2)
     Inter          → usada no corpo do texto
-    Ambas carregam do CDN, sem precisar instalar nada.
+    preconnect adianta a conexão com os servidores de fonte (carrega mais rápido).
   -->
+  <link rel="preconnect" href="https://api.fontshare.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://api.fontshare.com/v2/css?f[]=clash-display@600,700&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
-  <!-- FOLHA DE ESTILOS — todo o visual está no arquivo style.css -->
+  <!-- FOLHA DE ESTILOS — todo o visual está no arquivo styles.css -->
   <link rel="stylesheet" href="styles.css" />
+
+  <!--
+    DADOS ESTRUTURADOS (JSON-LD)
+    Ajuda o Google a entender que a Eryn é um negócio local — melhora o SEO
+    e a chance de aparecer em buscas da região.
+  -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Eryn Consultoria & Tecnologia",
+    "description": "Consultoria tecnológica que transforma processos em sistemas web sob medida. Diagnóstico gratuito, presencial ou online.",
+    "url": "https://eryn.com.br/",
+    "email": "erynconsultoria@gmail.com",
+    "telephone": "+5546988224523",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Francisco Beltrão",
+      "addressRegion": "PR",
+      "addressCountry": "BR"
+    },
+    "areaServed": "BR",
+    "founder": [
+      { "@type": "Person", "name": "Katriel Alves da Silva" },
+      { "@type": "Person", "name": "Matheus Renk" },
+      { "@type": "Person", "name": "João Pedro Martins" }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -42,15 +102,16 @@
        atributo stroke nas linhas abaixo.
   ══════════════════════════════════════ -->
   <nav class="nav">
-    <a href="#hero">
+    <a href="#hero" aria-label="ERYN — ir para o início">
       <!--
         LOGO ERYN — desenho vetorial (SVG)
         Cada letra é construída com linhas e curvas.
         stroke-width="5"   → traço grosso (verticais)
         stroke-width="2"   → traço fino  (horizontais)
         stroke="#F5F5F5"   → cor branca
+        aria-hidden        → o link já tem aria-label; o leitor de tela ignora o desenho
       -->
-      <svg width="70" height="22" viewBox="0 0 264 82" fill="none">
+      <svg width="70" height="22" viewBox="0 0 264 82" fill="none" aria-hidden="true">
         <!-- E -->
         <line x1="0"   y1="0"  x2="0"   y2="72" stroke="#F5F5F5" stroke-width="5"   stroke-linecap="square"/>
         <line x1="0"   y1="0"  x2="42"  y2="0"  stroke="#F5F5F5" stroke-width="2"   stroke-linecap="square"/>
@@ -84,11 +145,6 @@
     <div class="hero-grid"></div>
 
     <div class="hero-content">
-
-      <!-- Badge: pequeno destaque no topo do hero -->
-      <div class="hero-badge hi">
-    
-      </div>
 
       <!--
         TÍTULO PRINCIPAL
@@ -409,7 +465,7 @@
       </div>
 
       <!-- Cards dos fundadores -->
-      <div class="grid-2">
+      <div class="founders">
 
         <!-- KATRIEL — para adicionar foto: troque div.founder-av por img.founder-photo -->
         <div class="founder-card reveal">
@@ -437,13 +493,36 @@
             <div class="founder-name clash">Matheus Renk</div>
             <div class="founder-role">Co-Founder · Tecnologia & Desenvolvimento</div>
             <div class="founder-links">
-              <a href="https://wa.me/554699369153" class="founder-link" target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/5546999369153" class="founder-link" target="_blank" rel="noopener noreferrer">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.09 9.77 19.79 19.79 0 01.1 1.11 2 2 0 012.09 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91A16 16 0 0016.09 17.91l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-                46 9936-9153
+                46 99936-9153
               </a>
               <a href="mailto:renkzeme@gmail.com" class="founder-link">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M2 7l10 8 10-8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
                 renkzeme@gmail.com
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!--
+          JOÃO PEDRO MARTINS
+          Para usar foto no lugar das iniciais: troque div.founder-av por
+          <img src="joao.jpg" class="founder-photo" alt="João Pedro Martins">
+        -->
+        <div class="founder-card reveal" data-delay="200">
+          <div class="founder-av">JP</div>
+          <div>
+            <div class="founder-name clash">João Pedro Martins</div>
+            <div class="founder-role">Co-Founder · Desenvolvimento & Projetos</div>
+            <div class="founder-links">
+              <a href="https://wa.me/5546988200693" class="founder-link" target="_blank" rel="noopener noreferrer">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.09 9.77 19.79 19.79 0 01.1 1.11 2 2 0 012.09 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91A16 16 0 0016.09 17.91l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                46 98820-0693
+              </a>
+              <a href="mailto:mjoao9651@gmail.com" class="founder-link">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M2 7l10 8 10-8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                mjoao9651@gmail.com
               </a>
             </div>
           </div>
@@ -472,43 +551,43 @@
       <div style="margin-top: 8px;">
 
         <div class="faq-item reveal">
-          <button class="faq-btn">
+          <button class="faq-btn" aria-expanded="false" aria-controls="faq-1">
             <span class="faq-q">O diagnóstico realmente é gratuito?</span>
-            <svg class="faq-icon" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4 6l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg class="faq-icon" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 6l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
-          <p class="faq-a">Sim, 100%. Visitamos sua empresa (presencialmente ou online), mapeamos os processos e entregamos análise sem custo. A proposta só vem depois — você decide se quer avançar.</p>
+          <p class="faq-a" id="faq-1">Sim, 100%. Visitamos sua empresa (presencialmente ou online), mapeamos os processos e entregamos análise sem custo. A proposta só vem depois — você decide se quer avançar.</p>
         </div>
 
         <div class="faq-item reveal" data-delay="60">
-          <button class="faq-btn">
+          <button class="faq-btn" aria-expanded="false" aria-controls="faq-2">
             <span class="faq-q">Vocês atendem somente em Francisco Beltrão?</span>
-            <svg class="faq-icon" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4 6l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg class="faq-icon" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 6l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
-          <p class="faq-a">Não! Atendemos presencialmente em Francisco Beltrão e região, e online para qualquer cidade do Brasil.</p>
+          <p class="faq-a" id="faq-2">Não! Atendemos presencialmente em Francisco Beltrão e região, e online para qualquer cidade do Brasil.</p>
         </div>
 
         <div class="faq-item reveal" data-delay="120">
-          <button class="faq-btn">
+          <button class="faq-btn" aria-expanded="false" aria-controls="faq-3">
             <span class="faq-q">Quanto tempo leva para desenvolver meu sistema?</span>
-            <svg class="faq-icon" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4 6l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg class="faq-icon" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 6l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
-          <p class="faq-a">Depende da complexidade, mas a maioria dos projetos é entregue entre 4 e 12 semanas. Você recebe um cronograma detalhado antes de assinar qualquer coisa.</p>
+          <p class="faq-a" id="faq-3">Depende da complexidade, mas a maioria dos projetos é entregue entre 4 e 12 semanas. Você recebe um cronograma detalhado antes de assinar qualquer coisa.</p>
         </div>
 
         <div class="faq-item reveal" data-delay="180">
-          <button class="faq-btn">
+          <button class="faq-btn" aria-expanded="false" aria-controls="faq-4">
             <span class="faq-q">Minha empresa é pequena. Vale a pena?</span>
-            <svg class="faq-icon" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4 6l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg class="faq-icon" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 6l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
-          <p class="faq-a">É onde mais faz diferença. Pequenas empresas perdem horas com processos manuais. Um sistema bem feito pode literalmente dobrar a produtividade do seu time.</p>
+          <p class="faq-a" id="faq-4">É onde mais faz diferença. Pequenas empresas perdem horas com processos manuais. Um sistema bem feito pode literalmente dobrar a produtividade do seu time.</p>
         </div>
 
         <div class="faq-item reveal" data-delay="240">
-          <button class="faq-btn">
+          <button class="faq-btn" aria-expanded="false" aria-controls="faq-5">
             <span class="faq-q">Como funciona o pagamento?</span>
-            <svg class="faq-icon" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4 6l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg class="faq-icon" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 6l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
-          <p class="faq-a">Valor fixo combinado antes do início, com possibilidade de parcelamento. Sem mensalidades surpresa e sem letra miúda.</p>
+          <p class="faq-a" id="faq-5">Valor fixo combinado antes do início, com possibilidade de parcelamento. Sem mensalidades surpresa e sem letra miúda.</p>
         </div>
 
       </div>
@@ -562,7 +641,7 @@
 
         <!-- Coluna 1: Logo + descrição + contatos -->
         <div>
-          <svg width="74" height="23" viewBox="0 0 264 82" fill="none">
+          <svg width="74" height="23" viewBox="0 0 264 82" fill="none" aria-hidden="true">
             <line x1="0" y1="0" x2="0" y2="72" stroke="#F5F5F5" stroke-width="5" stroke-linecap="square"/>
             <line x1="0" y1="0" x2="42" y2="0" stroke="#F5F5F5" stroke-width="2" stroke-linecap="square"/>
             <line x1="0" y1="36" x2="30" y2="36" stroke="#F5F5F5" stroke-width="2" stroke-linecap="square"/>
@@ -606,7 +685,8 @@
           <div class="footer-col-title">Contato</div>
           <div class="footer-list">
             <a href="https://wa.me/5546988224523" target="_blank" rel="noopener noreferrer">WhatsApp Katriel</a>
-            <a href="https://wa.me/554699369153"  target="_blank" rel="noopener noreferrer">WhatsApp Matheus</a>
+            <a href="https://wa.me/5546999369153"  target="_blank" rel="noopener noreferrer">WhatsApp Matheus</a>
+            <a href="https://wa.me/5546988200693" target="_blank" rel="noopener noreferrer">WhatsApp João</a>
             <!-- Instagram da empresa -->
             <a href="https://www.instagram.com/eryn.consultoria?igsh=MWlpOXp4MndpcmR2eg==" target="_blank" rel="noopener noreferrer">Instagram Eryn</a>
 

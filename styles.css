@@ -1,6 +1,6 @@
 /* ════════════════════════════════════════
    ERYN — Consultoria & Tecnologia
-   style.css
+   styles.css
 ════════════════════════════════════════ */
 
 
@@ -29,6 +29,8 @@
 html {
   overflow-x: hidden;
   scroll-behavior: smooth;
+  /* Compensa a navbar fixa (66px) ao rolar para as âncoras (#servicos, etc) */
+  scroll-padding-top: 80px;
 }
 
 body {
@@ -189,9 +191,17 @@ button {
    Elementos partem invisíveis e sobem.
    JS adiciona .visible quando entram na tela.
 ════════════════════════════════════════ */
-.reveal {
+/*
+  Só escondemos o conteúdo quando o JS está ativo (classe "js" no <html>).
+  Sem JS, o .reveal nunca fica invisível — a página aparece normalmente.
+  O atraso escalonado (data-delay) é aplicado pelo JS, via setTimeout.
+*/
+.js .reveal {
   opacity: 0;
   transform: translateY(34px);
+}
+
+.reveal {
   transition:
     opacity   0.75s cubic-bezier(0.16, 1, 0.3, 1),
     transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
@@ -202,10 +212,24 @@ button {
   transform: translateY(0);
 }
 
-/* Atrasos escalonados para cards em sequência */
-.reveal[data-delay="100"] { transition-delay: 0.10s; }
-.reveal[data-delay="200"] { transition-delay: 0.20s; }
-.reveal[data-delay="300"] { transition-delay: 0.30s; }
+/*
+  ACESSIBILIDADE — respeita "reduzir movimento" do sistema operacional.
+  Desliga animações/transições e mostra todo o conteúdo estático.
+*/
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
 
 
 /* ════════════════════════════════════════
@@ -239,6 +263,16 @@ button {
 .grid-2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+/*
+  Grade dos fundadores — se ajusta sozinha à largura disponível:
+  3 colunas no desktop, 2 em telas médias e 1 no celular.
+*/
+.founders {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
   gap: 18px;
 }
 
